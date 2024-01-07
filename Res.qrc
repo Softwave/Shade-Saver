@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>ColPicker.png</file>
+        <file>ColPicker.svg</file>
+    </qresource>
+</RCC>
