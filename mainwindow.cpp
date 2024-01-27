@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-QColor getInvertedColour(QColor color)
+QColor getInvertedColor(QColor color)
 {
     auto getInvert = [=](int c) -> int
     {
@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    closing = false;
     ui->setupUi(this);
 
     // Setup the list widget
@@ -41,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Add event filter
     ui->listWidget->installEventFilter(this);
+
 }
 
 void MainWindow::show_hide()
@@ -62,7 +64,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_actionAdd_New_Colour_triggered()
+void MainWindow::on_actionAdd_New_Color_triggered()
 {
     // Show if hidden
     if (!this->isVisible())
@@ -70,12 +72,12 @@ void MainWindow::on_actionAdd_New_Colour_triggered()
         this->show();
     }
 
-    QColor colour = QColorDialog::getColor(Qt::white, this, "Select Colour");
-    QString colourName = colour.name();
+    QColor Color = QColorDialog::getColor(Qt::white, this, "Select Color");
+    QString ColorName = Color.name();
 
-    QListWidgetItem* newItem = new QListWidgetItem(colourName);
-    newItem->setBackgroundColor(colour);
-    newItem->setTextColor(getInvertedColour(colour));
+    QListWidgetItem* newItem = new QListWidgetItem(ColorName);
+    newItem->setBackgroundColor(Color);
+    newItem->setTextColor(getInvertedColor(Color));
 
     int insertRow = ui->listWidget->currentRow() + 1;
     if (insertRow > 0 && insertRow <= ui->listWidget->count()) {
@@ -88,13 +90,22 @@ void MainWindow::on_actionAdd_New_Colour_triggered()
     }
 
     newItem->setFlags(newItem->flags().setFlag(Qt::ItemIsEditable, false));
-    ourColors.insert(insertRow, colourName);
+    ourColors.insert(insertRow, ColorName);
 
-    // Copy the colour name to the clipboard
+    // Copy the Color name to the clipboard
     QClipboard *clipboard = QApplication::clipboard();
-    clipboard->setText(colourName);
+    clipboard->setText(ColorName);
 
 
+}
+
+// Clear the selection when we click on the main window
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        ui->listWidget->clearSelection();
+    }
 }
 
 
@@ -144,11 +155,11 @@ void MainWindow::on_listWidget_itemChanged(QListWidgetItem *item)
 }
 
 
-void MainWindow::on_actionLoad_Colours_From_File_triggered()
+void MainWindow::on_actionLoad_Colors_From_File_triggered()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
-                                                    tr("Open Colours File"), "",
-                                                    tr("Colours File (*.clrs);;All Files (*)"));
+                                                    tr("Open Colors File"), "",
+                                                    tr("Colors File (*.clrs);;All Files (*)"));
 
 
     QFile file(fileName);
@@ -160,7 +171,7 @@ void MainWindow::on_actionLoad_Colours_From_File_triggered()
     in.setVersion(QDataStream::Qt_4_5);
 
 
-    ourColors.clear();   // clear our colours
+    ourColors.clear();   // clear our Colors
     ui->listWidget->clear();
 
     in >> ourColors;
@@ -182,19 +193,22 @@ void MainWindow::updateInterface()
     QListWidgetItem* curItem = ui->listWidget->item(ui->listWidget->count()-1);
     curItem->setText(currentName);
     curItem->setBackgroundColor(curItem->text());
-    curItem->setTextColor(getInvertedColour(QColor(curItem->text())));
+    curItem->setTextColor(getInvertedColor(QColor(curItem->text())));
     curItem->setFlags(curItem->flags()
                           .setFlag(Qt::ItemIsEditable, false));
 }
 
 
-void MainWindow::on_actionSave_Colours_to_File_triggered()
+void MainWindow::on_actionSave_Colors_to_File_triggered()
 {
     refreshOurColorsFromUI();
-    qDebug() << "Number of colours being saved:" << ourColors.size();
+    qDebug() << "Number of Colors being saved:" << ourColors.size();
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save Colours"), "",
-                                                    tr("Save Colours (*.clrs);;All Files (*)"));
+    QString filter = "Colors File (*.clrs)";
+    QFileDialog dialog(this, tr("Save Colors File"), "", filter);
+    dialog.setDefaultSuffix(".clrs");
+    QString fileName = dialog.getSaveFileName(this, tr("Save Colors File"), "", filter, &filter);
+
 
 
     if (fileName.isEmpty())
@@ -217,21 +231,22 @@ void MainWindow::on_actionSave_Colours_to_File_triggered()
 
 void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
-    QColor colour = QColorDialog::getColor(item->backgroundColor(), this, "Select Colour");
-    item->setBackgroundColor(colour);
-    item->setTextColor(getInvertedColour(colour));
-    item->setText((QString)colour.name());
+    QColor Color = QColorDialog::getColor(item->backgroundColor(), this, "Select Color");
+    item->setBackgroundColor(Color);
+    item->setTextColor(getInvertedColor(Color));
+    item->setText((QString)Color.name());
 
-    // Copy the colour name to the clipboard
+    // Copy the Color name to the clipboard
     QClipboard *clipboard = QApplication::clipboard();
-    clipboard->setText(colour.name());
+    clipboard->setText(Color.name());
 }
 
 
 void MainWindow::on_actionAbout_Pigment_triggered()
 {
     QMessageBox aboutBox;
-    aboutBox.setText("Shade Saver; keep track of your colours!");
+    aboutBox.setWindowTitle("About Shade Saver");
+    aboutBox.setText("Shade Saver; keep track of your colors!");
     aboutBox.setInformativeText("Jessica Leyba, 2024, GPL v3, see license for more information");
     aboutBox.exec();
 }
@@ -273,11 +288,21 @@ void MainWindow::ProvideContextMenu(const QPoint &pos)
 
 
 
-
-
 void MainWindow::on_actionNew_Empty_Color_List_triggered()
 {
     ourColors.clear();   // clear our colors
     ui->listWidget->clear();
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    if (closing)
+    {
+        event->accept();
+    }
+    else
+    {
+        this->hide();
+        event->ignore();
+    }
+}

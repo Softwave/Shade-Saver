@@ -12,6 +12,9 @@
 #include <QDebug>
 #include <QClipboard>
 #include <QContextMenuEvent>
+#include <QMouseEvent>
+#include <QCloseEvent>
+#include <QSystemTrayIcon>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,16 +28,19 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void show_hide();
+
 private slots:
-    void on_actionAdd_New_Colour_triggered();
+    void on_actionAdd_New_Color_triggered();
 
 
 
     void on_listWidget_itemChanged(QListWidgetItem *item);
 
-    void on_actionLoad_Colours_From_File_triggered();
+    void on_actionLoad_Colors_From_File_triggered();
 
-    void on_actionSave_Colours_to_File_triggered();
+    void on_actionSave_Colors_to_File_triggered();
 
     void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
@@ -44,7 +50,7 @@ private slots:
 
     void on_actionAbout_Pigment_triggered();
 
-    void show_hide();
+
 
     void on_MainWindow_customContextMenuRequested(const QPoint &pos);
 
@@ -60,5 +66,9 @@ private:
     QString currentName;
     bool eventFilter(QObject *watched, QEvent *event);
     void reorderList();
+    bool closing;
+protected:
+    void mouseReleaseEvent(QMouseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 };
 #endif // MAINWINDOW_H

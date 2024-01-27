@@ -57,53 +57,53 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionAdd_New_Colour"/>
-   <addaction name="actionLoad_Colours_From_File"/>
-   <addaction name="actionSave_Colours_to_File"/>
+   <addaction name="actionAdd_New_Color"/>
+   <addaction name="actionLoad_Colors_From_File"/>
+   <addaction name="actionSave_Colors_to_File"/>
    <addaction name="actionNew_Empty_Color_List"/>
    <addaction name="separator"/>
    <addaction name="actionAbout_Pigment"/>
   </widget>
-  <action name="actionAdd_New_Colour">
+  <action name="actionAdd_New_Color">
    <property name="icon">
     <iconset theme="preferences-desktop-theme">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Add New Colour</string>
+    <string>Add New Color</string>
    </property>
    <property name="toolTip">
-    <string>Add new colour</string>
+    <string>Add new color</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
    </property>
   </action>
-  <action name="actionLoad_Colours_From_File">
+  <action name="actionLoad_Colors_From_File">
    <property name="icon">
     <iconset theme="document-open">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Load Colours From File</string>
+    <string>Load Colors From File</string>
    </property>
    <property name="toolTip">
-    <string>Load colours from file</string>
+    <string>Load colors from file</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+L</string>
    </property>
   </action>
-  <action name="actionSave_Colours_to_File">
+  <action name="actionSave_Colors_to_File">
    <property name="icon">
     <iconset theme="document-save">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Save Colours to File</string>
+    <string>Save Colors to File</string>
    </property>
    <property name="toolTip">
-    <string>Save colours to file</string>
+    <string>Save colors to file</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -126,7 +126,8 @@
   </action>
   <action name="actionNew_Empty_Color_List">
    <property name="icon">
-    <iconset theme="edit-delete"/>
+    <iconset theme="edit-delete">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>New Empty Color List</string>
