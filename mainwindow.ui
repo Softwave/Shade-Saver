@@ -66,7 +66,7 @@
   </widget>
   <action name="actionAdd_New_Color">
    <property name="icon">
-    <iconset theme="preferences-desktop-theme">
+    <iconset theme="list-add">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
@@ -114,7 +114,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset theme="help-about">
+    <iconset theme="dialog-question">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
