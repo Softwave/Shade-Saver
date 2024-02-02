@@ -66,8 +66,8 @@
   </widget>
   <action name="actionAdd_New_Color">
    <property name="icon">
-    <iconset theme="list-add">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset resource="Res.qrc">
+     <normaloff>:/new/prefix1/color--plus.png</normaloff>:/new/prefix1/color--plus.png</iconset>
    </property>
    <property name="text">
     <string>Add New Color</string>
@@ -81,8 +81,8 @@
   </action>
   <action name="actionLoad_Colors_From_File">
    <property name="icon">
-    <iconset theme="document-open">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset resource="Res.qrc">
+     <normaloff>:/new/prefix1/folder-horizontal-open.png</normaloff>:/new/prefix1/folder-horizontal-open.png</iconset>
    </property>
    <property name="text">
     <string>Load Colors From File</string>
@@ -96,8 +96,8 @@
   </action>
   <action name="actionSave_Colors_to_File">
    <property name="icon">
-    <iconset theme="document-save">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset resource="Res.qrc">
+     <normaloff>:/new/prefix1/disk.png</normaloff>:/new/prefix1/disk.png</iconset>
    </property>
    <property name="text">
     <string>Save Colors to File</string>
@@ -114,8 +114,8 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset theme="dialog-question">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset resource="Res.qrc">
+     <normaloff>:/new/prefix1/question.png</normaloff>:/new/prefix1/question.png</iconset>
    </property>
    <property name="text">
     <string>About Pigment</string>
@@ -126,8 +126,8 @@
   </action>
   <action name="actionNew_Empty_Color_List">
    <property name="icon">
-    <iconset theme="edit-delete">
-     <normaloff>.</normaloff>.</iconset>
+    <iconset resource="Res.qrc">
+     <normaloff>:/new/prefix1/color-swatch.png</normaloff>:/new/prefix1/color-swatch.png</iconset>
    </property>
    <property name="text">
     <string>New Empty Color List</string>

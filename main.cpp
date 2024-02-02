@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
     // Connect to new colour in main window
     trayMenu->addAction("New Color", &w, SLOT(on_actionAdd_New_Color_triggered()));
 
+    trayMenu->addAction("Show/Hide", &w, SLOT(show_hide()));
+
     trayMenu->addAction("Exit", &app, SLOT(quit()));
 
     trayIcon->setContextMenu(trayMenu);
@@ -37,6 +39,12 @@ int main(int argc, char *argv[])
                         //w.show_hide();
                         w.show_hide();
                     }
+
+                    if (reason == QSystemTrayIcon::MiddleClick)
+                    {
+                        w.show_hide();
+                    }
+
                 });
 
 
