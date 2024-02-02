@@ -2,18 +2,10 @@
     <qresource prefix="/new/prefix1">
         <file>ColPicker.png</file>
         <file>ColPicker.svg</file>
-        <file>color--arrow.png</file>
-        <file>color--exclamation.png</file>
-        <file>color--minus.png</file>
-        <file>color--pencil.png</file>
-        <file>color--plus.png</file>
-        <file>color-swatch.png</file>
-        <file>color.png</file>
-        <file>disk-black.png</file>
-        <file>disk.png</file>
-        <file>folder-horizontal-open.png</file>
-        <file>palette--plus.png</file>
-        <file>spectrum.png</file>
-        <file>question.png</file>
+        <file>preferences-desktop-theme.png</file>
+        <file>document-save.png</file>
+        <file>colors.png</file>
+        <file>document-open.png</file>
+        <file>help-faq.png</file>
     </qresource>
 </RCC>
