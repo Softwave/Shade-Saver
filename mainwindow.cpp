@@ -1,22 +1,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <math.h>
 
 QColor getInvertedColor(QColor color)
 {
-    auto getInvert = [=](int c) -> int
-    {
-        if (c < 96 || c > 160)
-            return 255 - c;
-        else if (c < 128)
-            return 255;
-        else
-            return 0;
-    };
+    // Get the luminance of the bg color
+    double luminance = 0.2126 * pow(color.red()/255.0, 2.2) +
+                       0.7152 * pow(color.green()/255.0, 2.2) +
+                       0.0722 * pow(color.blue()/255.0, 2.2);
 
-    color.setRed(getInvert(color.red()));
-    color.setGreen(getInvert(color.green()));
-    color.setBlue(getInvert(color.blue()));
-    return color;
+    // Set black or white based on the luminance of the color
+    if (luminance > 0.5)
+        return QColor(Qt::black);
+    else
+        return QColor(Qt::white);
 }
 
 //
@@ -42,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Add event filter
     ui->listWidget->installEventFilter(this);
+
+    // Set the listwidget to nofocus
+    ui->listWidget->setFocusPolicy(Qt::NoFocus);
 
 }
 
@@ -98,7 +98,7 @@ void MainWindow::on_actionAdd_New_Color_triggered()
 
     // Select the new item
     ui->listWidget->setCurrentRow(insertRow);
-
+    ui->listWidget->clearFocus();
 
 }
 
@@ -108,6 +108,8 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton)
     {
         ui->listWidget->clearSelection();
+        // Stop underlining the selected item
+        ui->listWidget->clearFocus();
     }
 }
 
@@ -150,6 +152,7 @@ void MainWindow::reorderList()
         ourColors.insert(i, curItem->text());
     }
     ui->listWidget->clearSelection();
+    ui->listWidget->clearFocus();
 }
 
 void MainWindow::on_listWidget_itemChanged(QListWidgetItem *item)
@@ -187,6 +190,11 @@ void MainWindow::on_actionLoad_Colors_From_File_triggered()
         currentName = i.value();
         updateInterface();
     }
+
+    // Stop underlining the text even though we don't have a selection
+    ui->listWidget->clearFocus();
+    ui->listWidget->clearSelection();
+    ui->listWidget->repaint();
 }
 
 
@@ -234,15 +242,22 @@ void MainWindow::on_actionSave_Colors_to_File_triggered()
 
 void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
-    QColor Color = QColorDialog::getColor(item->backgroundColor(), this, "Select Color");
-    item->setBackgroundColor(Color);
-    item->setTextColor(getInvertedColor(Color));
-    item->setText((QString)Color.name());
+    QColor originalColor = item->backgroundColor(); // Store the original color
+    QColor newColor = QColorDialog::getColor(originalColor, this, "Select Color");
 
-    // Copy the Color name to the clipboard
-    QClipboard *clipboard = QApplication::clipboard();
-    clipboard->setText(Color.name());
+    // Check if the newColor is valid before applying it
+    if (newColor.isValid()) {
+        item->setBackgroundColor(newColor);
+        item->setTextColor(getInvertedColor(newColor));
+        item->setText(newColor.name());
+
+        // Copy the newColor name to the clipboard
+        QClipboard *clipboard = QApplication::clipboard();
+        clipboard->setText(newColor.name());
+    }
+    // If newColor is not valid (i.e., the dialog was cancelled), do not change anything
 }
+
 
 
 void MainWindow::on_actionAbout_Pigment_triggered()
