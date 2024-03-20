@@ -96,6 +96,9 @@ void MainWindow::on_actionAdd_New_Color_triggered()
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText(ColorName);
 
+    // Select the new item
+    ui->listWidget->setCurrentRow(insertRow);
+
 
 }
 
@@ -246,8 +249,8 @@ void MainWindow::on_actionAbout_Pigment_triggered()
 {
     QMessageBox aboutBox;
     aboutBox.setWindowTitle("About Shade Saver");
-    aboutBox.setText("Shade Saver; keep track of your colors!");
-    aboutBox.setInformativeText("Jessica Leyba, 2024, GPL v3, see license for more information");
+    aboutBox.setText("Shade Saver; pick and keep track of colors!");
+    aboutBox.setInformativeText("Softwave, 2024, GPL v3, see license for more information");
     aboutBox.exec();
 }
 

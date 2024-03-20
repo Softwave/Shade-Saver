@@ -1,11 +1,16 @@
 <RCC>
     <qresource prefix="/new/prefix1">
-        <file>ColPicker.png</file>
-        <file>ColPicker.svg</file>
         <file>preferences-desktop-theme.png</file>
         <file>document-save.png</file>
         <file>colors.png</file>
         <file>document-open.png</file>
         <file>help-faq.png</file>
+        <file>ColPicker.svg</file>
+        <file>ColPicker.png</file>
+        <file>PickIcon16.png</file>
+        <file>question.png</file>
+        <file>folder-horizontal-open.png</file>
+        <file>bin.png</file>
+        <file>disk-black.png</file>
     </qresource>
 </RCC>

@@ -27,5 +27,4 @@ RESOURCES += \
     Res.qrc
 
 DISTFILES += \
-    ColPicker.png \
     ColPicker.svg

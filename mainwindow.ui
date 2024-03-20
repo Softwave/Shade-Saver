@@ -482,7 +482,7 @@
      <x>0</x>
      <y>0</y>
      <width>414</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
@@ -509,7 +509,7 @@
   <action name="actionAdd_New_Color">
    <property name="icon">
     <iconset resource="Res.qrc">
-     <normaloff>:/new/prefix1/preferences-desktop-theme.png</normaloff>:/new/prefix1/preferences-desktop-theme.png</iconset>
+     <normaloff>:/new/prefix1/PickIcon16.png</normaloff>:/new/prefix1/PickIcon16.png</iconset>
    </property>
    <property name="text">
     <string>Add New Color</string>
@@ -529,7 +529,7 @@
   <action name="actionLoad_Colors_From_File">
    <property name="icon">
     <iconset resource="Res.qrc">
-     <normaloff>:/new/prefix1/document-open.png</normaloff>:/new/prefix1/document-open.png</iconset>
+     <normaloff>:/new/prefix1/folder-horizontal-open.png</normaloff>:/new/prefix1/folder-horizontal-open.png</iconset>
    </property>
    <property name="text">
     <string>Load Colors From File</string>
@@ -544,7 +544,7 @@
   <action name="actionSave_Colors_to_File">
    <property name="icon">
     <iconset resource="Res.qrc">
-     <normaloff>:/new/prefix1/document-save.png</normaloff>:/new/prefix1/document-save.png</iconset>
+     <normaloff>:/new/prefix1/disk-black.png</normaloff>:/new/prefix1/disk-black.png</iconset>
    </property>
    <property name="text">
     <string>Save Colors to File</string>
@@ -562,7 +562,7 @@
    </property>
    <property name="icon">
     <iconset resource="Res.qrc">
-     <normaloff>:/new/prefix1/help-faq.png</normaloff>:/new/prefix1/help-faq.png</iconset>
+     <normaloff>:/new/prefix1/question.png</normaloff>:/new/prefix1/question.png</iconset>
    </property>
    <property name="text">
     <string>About Pigment</string>
@@ -574,7 +574,7 @@
   <action name="actionNew_Empty_Color_List">
    <property name="icon">
     <iconset resource="Res.qrc">
-     <normaloff>:/new/prefix1/colors.png</normaloff>:/new/prefix1/colors.png</iconset>
+     <normaloff>:/new/prefix1/bin.png</normaloff>:/new/prefix1/bin.png</iconset>
    </property>
    <property name="text">
     <string>New Empty Color List</string>
