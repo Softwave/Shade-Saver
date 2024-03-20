@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
   <defs>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="186.501" y1="129.663" x2="186.501" y2="373.002" id="gradient-3" gradientTransform="matrix(1.203603, 1.150532, -1.370314, 1.433525, 376.966203, -311.744581)">
-      <stop offset="0" style="stop-color: rgb(46, 191, 145);"/>
-      <stop offset="1" style="stop-color: rgb(131, 96, 195);"/>
-    </linearGradient>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="249.999" y1="47.414" x2="249.999" y2="452.585" id="gradient-0">
-      <stop offset="0" style="stop-color: #bada55"/>
-      <stop offset="1" style="stop-color: #758d29"/>
-    </linearGradient>
     <linearGradient id="color-0" bx:pinned="true">
       <stop style="stop-color: #7f7fd5;" offset="0"/>
       <stop style="stop-color: #86a8e7;" offset="0.5"/>
       <stop style="stop-color: #91eae4;" offset="1"/>
     </linearGradient>
-    <linearGradient id="color-0-1" gradientUnits="userSpaceOnUse" x1="249.999" y1="74.757" x2="249.999" y2="425.242" gradientTransform="matrix(1, 0, 0, 1, 5.24302, 1.498006)" xlink:href="#color-0"/>
+    <linearGradient id="color-0-1" gradientUnits="userSpaceOnUse" x1="249.999" y1="74.757" x2="249.999" y2="425.242" gradientTransform="matrix(1.076781, 0, 0, 1.076781, -13.951988, -17.697004)" xlink:href="#color-0"/>
   </defs>
-  <rect x="47.414" y="47.414" width="405.171" height="405.171" style="fill: url('#gradient-3');"/>
-  <rect x="47.414" y="47.414" width="405.171" height="405.171" style="stroke-width: 0px; stroke: url('#gradient-0'); fill: rgb(127, 127, 213);"/>
-  <rect x="80" y="76.255" width="350.485" height="350.485" style="fill: url('#color-0-1');"/>
-  <g style="transform-origin: 170.281px 205.759px;" transform="matrix(15.243891, 0, 0, 15.243891, 79.718971, 44.240967)">
+  <rect x="66.545" y="62.8" width="377.395" height="377.395" style="fill: url('#color-0-1'); stroke: rgb(127, 127, 213); stroke-width: 29px;"/>
+  <g style="transform-origin: 170.281px 205.759px;" transform="matrix(15.980489, 0, 0, 15.980489, 79.719017, 44.241024)">
     <rect style="opacity: 1; vector-effect: none; fill-opacity: 1; stroke: none; stroke-width: 3.2; stroke-linecap: square; stroke-linejoin: round; stroke-miterlimit: 4; stroke-dasharray: none; stroke-dashoffset: 3.2; stroke-opacity: 1;" id="rect1290" width="16" height="16" x="162.281" y="197.759"/>
     <rect y="198.759" x="163.281" height="4" width="4" id="rect6829-4" style="display:inline;fill:#5da1f3;fill-opacity:1;stroke:none;stroke-width:1.15467715"/>
     <rect style="display:inline;fill:#5dd3f3;fill-opacity:1;stroke:none;stroke-width:1.15467715" id="rect6831-7" width="4" height="4" x="168.281" y="198.759"/>

@@ -97,8 +97,9 @@ void MainWindow::on_actionAdd_New_Color_triggered()
     clipboard->setText(ColorName);
 
     // Select the new item
-    ui->listWidget->setCurrentRow(insertRow);
+    //ui->listWidget->setCurrentRow(insertRow);
     ui->listWidget->clearFocus();
+    ui->listWidget->setFocusPolicy(Qt::NoFocus);
 
 }
 
@@ -254,8 +255,12 @@ void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
         // Copy the newColor name to the clipboard
         QClipboard *clipboard = QApplication::clipboard();
         clipboard->setText(newColor.name());
+
+        // Clear focus
+        ui->listWidget->clearFocus();
+        ui->listWidget->clearSelection();
     }
-    // If newColor is not valid (i.e., the dialog was cancelled), do not change anything
+    // If newColor is not valid do not change anything
 }
 
 
@@ -265,7 +270,7 @@ void MainWindow::on_actionAbout_Pigment_triggered()
     QMessageBox aboutBox;
     aboutBox.setWindowTitle("About Shade Saver");
     aboutBox.setText("Shade Saver; pick and keep track of colors!");
-    aboutBox.setInformativeText("Softwave, 2024, GPL v3, see license for more information");
+    aboutBox.setInformativeText("Softwave, 2024\n GPL v3 see license for more information\nhttps://www.s0ftwave.com/");
     aboutBox.exec();
 }
 
