@@ -28,3 +28,9 @@ RESOURCES += \
 
 DISTFILES += \
     ColPicker.svg
+
+INCLUDEPATH += \
+    /home/discovery/anaconda3/include/qt \
+    /home/discovery/anaconda3/include/qt/QtWidgets/
+
+DESTDIR = $$OUT_PWD/bin

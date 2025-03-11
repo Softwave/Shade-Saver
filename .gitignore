@@ -52,3 +52,9 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+# Cache thingy
+/.cache
+
+# bin folder 
+/bin

@@ -270,7 +270,7 @@ void MainWindow::on_actionAbout_Pigment_triggered()
     QMessageBox aboutBox;
     aboutBox.setWindowTitle("About Shade Saver");
     aboutBox.setText("Shade Saver; pick and keep track of colors!");
-    aboutBox.setInformativeText("Softwave, 2024\n GPL v3 see license for more information\nhttps://www.s0ftwave.com/");
+    aboutBox.setInformativeText("Softwave, 2025\n GPL v3 see license for more information\nwhttps://s0ftwave.net/");
     aboutBox.exec();
 }
 
